@@ -42,8 +42,6 @@ jobs:
     name: Run Cypress
     runs-on: ubuntu-latest
     environment: dev
-    env:
-      working-directory: test/e2e
 
     steps:
       - name: Checkout repository
@@ -51,9 +49,7 @@ jobs:
 
       - name: Install dependencies
         run: npm install
-        working-directory: ${{ env.working-directory }}
 
       - name: Run tests in ${{ github.event.inputs.choice_browser }}-${{ github.event.inputs.choice_resolution }}
         run: |
           cross-env E2E_ENV=.${{ github.event.inputs.choice_environment }} BROWSER_TYPE=${{ github.event.inputs.choice_platform }} RESOLUTION=${{ github.event.inputs.choice_resolution }} cypress run --browser ${{ github.event.inputs.choice_browser }}
-        working-directory: ${{ env.working-directory }}
