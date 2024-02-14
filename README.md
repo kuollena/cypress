@@ -10,14 +10,10 @@ Here you can find solutions for management:
 
 ## Env Configuration
 
-The app configuration is managed through environment variables and `.env` files loaded using [dotenv](https://www.npmjs.com/package/dotenv) and [cross-env ^7.0.3](https://www.npmjs.com/package/cross-env).
+The app configuration is managed through environment variables and `.env` files loaded using [dotenv](https://www.npmjs.com/package/dotenv) and [cross-env](https://www.npmjs.com/package/cross-env).
 
 Create a `.env` file, and / or specify the environment variables.
-
 `.env` file should be stored in the project directory, in same folder with `package.json` file.
-
-**Example with DEV file:**
-To run the tests in DEV, create `.env.dev` file
 
 ## Browser Configuration & Screen configuration
 
