@@ -1,0 +1,20 @@
+name: Run Cypress using Wide Configuration
+on:
+  workflow_dispatch: # allow for manual execution
+
+jobs:
+  cypress-tests:
+    name: Run Cypress
+    runs-on: ubuntu-latest
+    environment: dev
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Run tests
+        run: |
+          npm run cypress:lena
