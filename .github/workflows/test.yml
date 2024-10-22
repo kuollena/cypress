@@ -1,0 +1,55 @@
+name: Run Cypress using Wide Configuration
+on:
+  workflow_dispatch: # allow for manual execution
+    inputs:
+      choice_browser:
+        type: choice
+        description: Select browser
+        options:
+          - chrome
+          - firefox
+          - edge
+
+      choice_environment:
+        type: choice
+        description: Select environment
+        options:
+          - dev
+          - uat
+          - prod
+
+      choice_platform:
+        type: choice
+        description: Select platform type
+        options:
+          - desktop
+          - tablet
+          - mobile
+
+      choice_resolution:
+        type: choice
+        description: Select screen resolution
+        options:
+          - 1536x864
+          - 1920x1080
+          - 360x760
+          - 414x846
+          - 810x1080
+          - 800x1280
+
+jobs:
+  cypress-tests:
+    name: Run Cypress
+    runs-on: ubuntu-latest
+    environment: dev
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Run tests in ${{ github.event.inputs.choice_browser }}-${{ github.event.inputs.choice_resolution }}
+        run: |
+          npx cross-env E2E_ENV=.${{ github.event.inputs.choice_environment }} BROWSER_TYPE=${{ github.event.inputs.choice_platform }} RESOLUTION=${{ github.event.inputs.choice_resolution }} cypress run --browser ${{ github.event.inputs.choice_browser }}
