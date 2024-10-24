@@ -1,4 +1,4 @@
-name: Run Cypress using Wide Configuration
+name: 2 Test Run Cypress in parallel
 on:
   workflow_dispatch: # allow for manual execution
 

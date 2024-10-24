@@ -1,4 +1,4 @@
-name: Run Cypress using Wide Configuration
+name: Lena Run Cypress certain test
 on:
   workflow_dispatch: # allow for manual execution
 
