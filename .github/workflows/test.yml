@@ -52,4 +52,4 @@ jobs:
 
       - name: Run tests in ${{ github.event.inputs.choice_browser }}-${{ github.event.inputs.choice_resolution }}
         run: |
-          npx cross-env E2E_ENV=.${{ github.event.inputs.choice_environment }} BROWSER_TYPE=${{ github.event.inputs.choice_platform }} RESOLUTION=${{ github.event.inputs.choice_resolution }} cypress run --browser ${{ github.event.inputs.choice_browser }}
+          sudo npx cross-env E2E_ENV=.${{ github.event.inputs.choice_environment }} BROWSER_TYPE=${{ github.event.inputs.choice_platform }} RESOLUTION=${{ github.event.inputs.choice_resolution }} cypress run --browser ${{ github.event.inputs.choice_browser }}
